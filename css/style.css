@@ -1,0 +1,554 @@
+:root{
+    --main-font: 'Palanquin Dark', sans-serif;
+    --secondary-font: 'Permanent Marker', cursive;
+    --main-color: #00b894
+}
+::selection{
+    color: #000;
+    background-color: #fff
+}
+::-webkit-scrollbar{
+    display: none;
+}
+body{
+    height: 3000px;
+    font-family: var(--main-font)
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+     width: 1200px;
+     margin: 0 auto
+}
+/*===================== Start introduction ====================*/
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.introduction{
+    background: url(../images/bat1.jpg) center;
+    color: #fff;
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+}
+
+.introduction .intro-info{
+    position: relative;
+    z-index: 55;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.introduction .intro-info h1{
+    font-size: 50px;
+    font-family: var(--secondary-font)
+}
+
+.introduction .intro-info h1 span{
+    color: var(--main-color)
+}
+
+.introduction .intro-info p{
+    width: 75%;
+    margin: 0 auto;
+    color: #ddd
+}
+/*===================== End introduction ====================*/
+/*===================== Start Options ====================*/
+.options{
+    background-color: #fff;
+    width: 25%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -25%;
+    z-index: 66;
+    transition: left 0.6s ease
+}
+.options.open{
+    left: 0;
+}
+
+.options .tringle{
+    position: absolute;
+    top: 100px;
+    right: -39px;
+    background-color: #fff;
+    clip-path: polygon(70% 50%, 0 0, 0 100%);
+    width: 40px;
+    height: 40px;
+    cursor: pointer
+}
+
+.options .bg-change,
+.options .colors{
+    text-align: center
+}
+
+.options .op button.stable{
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    width: 50%;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px 0 0 0;
+    opacity: 0.6;
+    outline: none;
+}
+.options .op button.active{
+    opacity: 1
+}
+
+.options .op{
+    padding: 0 15px
+}
+
+.options .op h3{
+    margin: 30px 0 15px 0;
+    text-align: left
+}
+
+.options .colors ul{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.options .colors ul li{
+    list-style: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-right: 8px;
+    border: 2px solid #fff
+}
+
+.options .colors ul li.active{
+    border: 2px solid #000
+}
+.options .colors ul li:first-child{
+    background-color: #00b894
+}
+.options .colors ul li:nth-child(2){
+    background-color: #4E278D
+}
+.options .colors ul li:nth-child(3){
+    background-color: #d63031
+}
+.options .colors ul li:nth-child(4){
+    background-color: #ffd32a
+}
+.options .colors ul li:last-child{
+    background-color: #1B9CFC;
+    margin-right: 0px;
+}
+
+.options .bullets-option .bullets-buttons{
+    text-align: center
+}
+
+.options .bullets-option .bullets-buttons button{
+    width: 90px;
+    font-size: 16px;
+    height: 35px;
+    background-color: var(--main-color);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 0 3px;
+    outline: none
+}
+
+.options .bullets-option .bullets-buttons button.active{
+    border: 2px solid #000
+}
+
+.options .reset-options{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.options .reset-options button{
+    width: 90%;
+    font-size: 16px;
+    height: 45px;
+    background-color: #ff3838;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 0 3px;
+    outline: none
+}
+/*===================== End Options ====================*/
+/*===================== Start Bullets ====================*/
+.bullets{
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 333;
+}
+
+.bullets .bullet{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--main-color);
+    cursor: pointer;
+    margin: 15px 0;
+    text-align: right;
+}
+
+.bullets .bullet span{
+    position: relative;
+    right: 120px;
+    top: -50%;
+    color: #000;
+    background-color: var(--main-color);
+    padding: 0px 10px;
+    font-size: 13px;
+    text-align: left;
+    width: 100px;
+    display: none;
+    cursor: default;
+    pointer-events: none
+}
+
+.bullets .bullet:hover > span{
+    display: inline-block;
+}
+.bullets .bullet.active > span{
+    display: inline-block;
+}
+
+
+.bullets .bullet span::before{
+    content: '';
+    position: absolute;
+    top: 4px;
+    right: -14px;
+    border-color: transparent transparent transparent var(--main-color);
+    border-width: 7px;
+    border-style: solid;
+}
+/*===================== End Bullets ====================*/
+/*===================== Start About ====================*/
+.about{
+    padding:  0;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4)
+}
+
+.about .about-box{
+    flex: 1;
+    padding: 0 10px
+}
+
+.about .about-box h4{
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--main-color)
+}
+
+.about .about-box p{
+    font-size: 15px
+}
+
+.about .about-box.about-img{
+    flex: 2
+}
+
+.about .about-box img{
+    width: 100%
+}
+/*===================== End About ====================*/
+/*===================== Start Skills ====================*/
+.skills{
+    text-align: center;
+    padding: 70px 0;
+    background-color: #1e272e;
+    color: #fff
+}
+
+.skills .skills-heading h1{
+    font-size: 36px;
+    margin-bottom: 20px
+}
+
+.skills .skills-heading h1 span{
+    color: var(--main-color)
+}
+
+.skills .skills-holder{
+    display: flex;
+    flex-wrap: wrap
+}
+
+.skills .skills-holder .skill-progress{
+    width: 33.33%;
+    text-align: center;
+    padding: 30px 35px;
+}
+
+.skills .skills-holder .skill-progress p{
+    margin-bottom: 10px;
+    font-size: 18px
+}
+
+.skills .skills-holder .skill-progress span{
+    width: 100%;
+    background-color: var(--main-color);;
+    height: 5px;
+    display: block;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;;
+    transition: width 1s ease
+}
+
+/* .skills .skills-holder .skill-progress span::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 100%;
+    background-color: var(--main-color);
+    transition: width 1s ease
+} */
+/*===================== End Skills ====================*/
+/*===================== Start Gallery ====================*/
+.gallery{
+    padding: 60px 0;
+    text-align: center;
+    background-color: #fff
+}
+
+.gallery .gallery-heading h1{
+    font-size: 30px;
+    margin-bottom: 60px
+}
+
+.gallery .gallery-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center
+}
+
+.gallery .gallery-list .gallery-img{
+    padding: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    position: relative
+    
+}
+
+.gallery .gallery-list .gallery-img .img-holder{
+    position: relative;
+    width: 270px;
+    height: 390px;
+    margin: 10px 5px
+}
+
+.gallery .gallery-list .gallery-img .img-holder:hover::before{
+    opacity: 1;
+}
+
+.gallery .gallery-list .gallery-img img{
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+}
+
+.gallery-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 555;
+}
+
+.gallery-overlay .img-holder{
+    width: 400px;
+    height: 600px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.gallery-overlay .img-holder h3{
+    color: #fff;
+    background-color: var(--main-color);
+    position: relative;
+    top: 12px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.gallery-overlay .img-holder img{
+    width: 100%;
+    height: 100%;
+    border: 4px solid #ddd
+}
+/*===================== End Gallery ====================*/
+/*===================== Start Testimonials ====================*/
+.testimonials{
+    padding: 30px 0 80px 0;
+    position: relative
+}
+
+.testimonials::before,
+.testimonials::after{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+}
+
+.testimonials::after{
+    left: 0;
+    background-color: var(--main-color)
+}
+
+.testimonials::before{
+    right: 0;
+    background-color: #333
+}
+
+.testimonials .testimonials-heading{
+    text-align: center
+}
+
+.testimonials .testimonials-heading h1{
+    font-size: 40px;
+    color: #333;
+    margin-right: 20px;
+}
+
+.testimonials .testimonials-heading span{
+    color: var(--main-color)
+}
+
+.testimonials .testimonials-holder{
+    display: flex;
+    margin-top: 60px
+}
+
+.testimonials .testimonials-holder .test-box{
+    background-color: #fff;
+    padding: 20px 30px;
+    margin: 0 20px;
+    width: calc(100% / 3);
+}
+
+.testimonials .testimonials-holder .test-box > p{
+    color: #666;
+    font-size: 16px;
+    line-height: 1.4;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.testimonials .testimonials-holder .test-box .test-image{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+    display: inline-block;
+    border: 2px solid #ddd
+}
+
+.testimonials .testimonials-holder .test-box .test-image img{
+    width: 100%;
+    height: 100%
+}
+
+.testimonials .testimonials-holder .test-box .test-info{
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 8px;
+}
+
+.testimonials .testimonials-holder .test-box .test-info h4{
+    margin: 0;
+}
+
+.testimonials .testimonials-holder .test-box .test-info p{
+    margin: 0;
+    color: #666;
+    line-height: 1;
+}
+/*===================== End Testimonials ====================*/
+@media(max-width: 576px) { /*Small Screen*/
+    .container{
+        width: 100%;
+    }
+    .options{
+        width: 75%;
+        left: -75%
+    }
+    .introduction .intro-info {
+        padding: 0 15px;
+    }
+    .introduction .intro-info h1{
+        font-size: 38px;
+    }
+    .introduction .intro-info p{
+        width: 100%;
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    .about{
+        flex-flow: column;
+        padding: 30px 0
+    }
+    .about .about-box{
+        
+    }
+    .about .about-box img{
+        margin: 30px 0;
+    }
+    .testimonials .testimonials-holder{
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .testimonials .testimonials-holder .test-box{
+        width: 90%;
+        margin: 15px auto
+    }
+    .testimonials .testimonials-heading h1{
+        font-size: 30px;
+    }
+}
